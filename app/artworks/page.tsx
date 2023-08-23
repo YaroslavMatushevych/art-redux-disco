@@ -1,21 +1,16 @@
 import Link from 'next/link';
 import { fetchArtworks } from "@/lib/services";
+import { Artwork } from '@/lib/interfaces';
+import ArtworksList from '@/components/ArtworksList/ArtworksList';
 import styles from './styles.module.scss';
 
-interface Artwork {
-  id: number;
-  title: string;
-  description: string;
-  image_url: string;
-}
-
-// revalidation every 60s ISR. Could be done statically if data doesn't changes
+// revalidation every 60s, ISR. Could be done statically if data doesn't changes
 export const revalidate = 60;
 
-export async function getArtworksData() {
-  const artwork = await fetchArtworks();
-
-  return artwork.data;
+export async function getArtworksData(): Promise<Artwork[]> {
+  const artworks = await fetchArtworks();
+  console.log(artworks)
+  return artworks.data;
 }
 
 const PageArtworksList = async () => {
@@ -23,16 +18,8 @@ const PageArtworksList = async () => {
 
   return (
     <div className={styles.container}>
-      <h1>Artworks</h1>
-      <ul>
-        {artworks.map(artwork => (
-          <li key={artwork.id}>
-            <Link href={`/artwork/${artwork.id}`}>
-              {artwork.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <h1 className={styles.h1}>Artworks</h1>
+      <ArtworksList artworks={artworks} />
     </div>
   );
 };
