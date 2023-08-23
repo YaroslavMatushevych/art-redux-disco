@@ -12,6 +12,8 @@ Redux Toolkit Query over Redux: I had the option to use the createAsyncThunk fun
 
 Static vs. Dynamic Data: For this particular application, I believe it's beneficial not to rely heavily on Redux for state management. Instead, making the most out of Next.js's static and server-side rendering capabilities is more fitting. The data here isn't dynamic, and the app can benefit greatly from static or incremental static regeneration, leading to faster load times and a better user experience.
 
+Styles. I chose modules over tailwind css because it leads to smaller bundle and good, clean jsx. But both options are good.
+
 🚧 Installation & Setup
 First, run the development server:
 
