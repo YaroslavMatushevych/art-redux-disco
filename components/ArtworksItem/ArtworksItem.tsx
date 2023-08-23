@@ -2,27 +2,26 @@
 import React from 'react'
 import Link from 'next/link'
 import { Artwork } from '@/lib/interfaces'
+import { substrStringByComma } from '@/lib/utils/substrStringByComma'
 import './ArtworksItem.scss'
 
 interface ArtworksItemProps {
   artwork: Artwork;
 }
 
-const ArtworksItem: React.FC<ArtworksItemProps> = ({ artwork }) => {
-  const substredTitle = artwork.title.substring(0, artwork.title.indexOf(','));
+const ArtworkDetails: React.FC<ArtworksItemProps> = ({ artwork }) => {
+  // it recalculates on every rerender so we could memoize it if it was expensive op.
+  const substredTitle = substrStringByComma(artwork.title);
 
   return (
     <Link href={`/artwork/${artwork.id}`}>
-      <figure style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1593414220166-085caeae0382?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=751&q=80)' }}>
+      {/* I would use Image for optimization from next but for now it is not critical */}
+      {/* ideally should be used lazy loading */}
+      <figure style={{ backgroundImage: `url(https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg)` }}>
         <figcaption>{substredTitle}</figcaption>
       </figure>
     </Link>
-    // <li key={artwork.id}>
-    //   <Link href={`/artwork/${artwork.id}`}>
-    //     {artwork.title}
-    //   </Link>
-    // </li>
   )
 }
 
-export default ArtworksItem
+export default ArtworkDetails

@@ -1,21 +1,20 @@
 'use client'
-import React from 'react'
-import { Artwork } from '@/lib/interfaces'
+import React from 'react';
 import ArtworksItem from '../ArtworksItem/ArtworksItem'
+import { useGetArtworksQuery } from "@/redux/services/artworkApi";
+import { Artwork } from '@/lib/interfaces';
 import './ArtworksList.scss'
 
-interface ArtworksListProps {
-  artworks: Artwork[];
-}
+const ArtworksList = () => {
+  const { isLoading, isFetching, data: responseData, error } = useGetArtworksQuery(null);
 
-const ArtworksList: React.FC<ArtworksListProps> = ({ artworks }) => {
-  return (
-    <>
-      {artworks.map(artwork => (
-        <ArtworksItem key={artwork.id} artwork={artwork} />
-      ))}
-    </>
-  )
+  if (error) return <p>Oh no, there was an error</p>;
+  if (isLoading || isFetching) return <p>Loading...</p>;
+  if (!responseData) return <p>No data available</p>;
+
+  const { data: artworks } = responseData;
+
+  return artworks.map((artwork: Artwork) => <ArtworksItem key={artwork.id} artwork={artwork} />)
 }
 
 export default ArtworksList

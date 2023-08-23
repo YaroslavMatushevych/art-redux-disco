@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import BlurryFilter from '@/components/BlurryFilter/BlurryFilter';
+import { Providers } from "@/redux/provider";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,12 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <BlurryFilter />
-        <Header />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <BlurryFilter />
+          <Header />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
