@@ -6,15 +6,17 @@ const Header = () => {
   return (
     <header>
       <div>
-        <article id="title">
+        <div className="title-container">
           <span className="parent">Chicago Institute</span>
           <br />
           <span className="name">Artwork Gallery</span>
-        </article>
+        </div>
 
-        <article id="reference">
-          Redux, Next.js
-        </article>
+        <nav className="nav-container">
+          <Link href="/">
+            Home
+          </Link>
+        </nav>
       </div>
     </header>
   );

@@ -1,22 +1,23 @@
+// just for development disable grammarly extension error
+.grammarly-highlight {
+  display: none !important;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
 html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-// Page Layout 📰
-
 body {
   margin: 0;
   padding: 0;
@@ -25,115 +26,14 @@ body {
   box-sizing: border-box;
   cursor: default;
 }
-* {
-  &,
-  &:before,
-  &:after {
-    box-sizing: inherit;
-  }
-}
-header {
-  width: 100%;
-  height: 8rem;
-  position: sticky;
-  top: 0;
-  z-index: 1;
 
-  > div {
-    width: calc(100% - 3rem);
-    max-width: 800px;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
 }
-#title {
-  width: 100%;
 
-  .parent {
-    line-height: 1em;
-    color: #666;
-  }
-  .name {
-    font-size: 2em;
-    font-weight: bold;
-    color: #333;
-    mix-blend-mode: difference;
-  }
-}
-#reference {
-  display: flex;
-
-  > a {
-    color: #444;
-
-    & + a {
-      margin-left: 1rem;
-    }
-  }
-}
-main,
-#folders {
+main {
   width: calc(100% - 3rem);
   max-width: 800px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 1.5rem;
-}
-main {
-  > article {
-    width: 100%;
-    height: 32px;
-    padding: 1rem;
-    background-color: #fff;
-  }
-  > figure {
-    width: 100%;
-    margin: 0;
-    background-color: #fff;
-    background-size: cover;
-    border-radius: 1rem;
-    transition: all 100ms ease-out;
-
-    &:hover {
-      box-shadow: 0 16px 16px -4px rgba(#000, 0.3);
-      transform: scale(1.02);
-    }
-    &:after {
-      content: "";
-      padding-bottom: 100%;
-      display: block;
-    }
-    > figcaption {
-      margin: 1rem;
-      color: #fff;
-      font-size: 1.25em;
-      position: absolute;
-    }
-  }
-}
-#folders {
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-
-  > article {
-    width: 100%;
-    height: 4rem;
-    padding: 0 1.5rem;
-    background-color: #fff;
-    border-radius: 1rem;
-    line-height: 4rem;
-    transition: all 100ms ease-out;
-
-    &:hover {
-      box-shadow: 0 16px 16px -4px rgba(#000, 0.1);
-      transform: scale(1.02);
-    }
-  }
-}
-footer {
-  width: 100%;
-  height: 8rem;
 }

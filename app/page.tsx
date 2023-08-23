@@ -1,11 +1,26 @@
-import Image from 'next/image'
-import styles from './styles.module.scss'
+import Link from 'next/link';
+import { fetchArtworks } from "@/lib/services";
+import { Artwork } from '@/lib/interfaces';
+import ArtworksList from '@/components/ArtworksList/ArtworksList';
+import styles from './styles.module.scss';
 
-export default function Home() {
-  return (
-    <div className="container">
-      <h2>Welcome to our Artwork Gallery</h2>
-      <p>Discover the beauty of art.</p>
-    </div>
-  )
+// revalidation every 60s, ISR. Could be done statically if data doesn't changes.
+// or if data is changing dynamicaly we should use no-cache strategy
+export const revalidate = 60;
+
+export async function getArtworksData(): Promise<Artwork[]> {
+  const artworks = await fetchArtworks();
+  return artworks.data;
 }
+
+const HomeGallery = async () => {
+  const artworks = await getArtworksData();
+
+  return (
+    <div className={styles.container}>
+      <ArtworksList artworks={artworks} />
+    </div>
+  );
+};
+
+export default HomeGallery;

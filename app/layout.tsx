@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <BlurryFilter />
         <Header />
-        <main className="main-content">
+        <main>
           {children}
         </main>
         <Footer />

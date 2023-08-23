@@ -1,0 +1,24 @@
+figure {
+  width: 100%;
+  margin: 0;
+  background-color: #fff;
+  background-size: cover;
+  border-radius: 1rem;
+  transition: all 100ms ease-out;
+  height: 300px;
+
+  &:hover {
+    box-shadow: 0 16px 16px -4px rgba(#000, 0.3);
+    transform: scale(1.02);
+  }
+  &:after {
+    content: "";
+    padding-bottom: 100%;
+    display: block;
+  }
+  > figcaption {
+    padding: 1rem;
+    color: #fff;
+    font-size: 1.25em;
+  }
+}

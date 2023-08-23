@@ -1,6 +1,6 @@
 export default function ArtworkNotFound() {
   return (
-    <div className="">
+    <div>
       Oopps! No Artwork was Found 📭
     </div>
   );

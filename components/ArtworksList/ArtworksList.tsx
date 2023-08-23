@@ -10,11 +10,11 @@ interface ArtworksListProps {
 
 const ArtworksList: React.FC<ArtworksListProps> = ({ artworks }) => {
   return (
-    <ul>
+    <>
       {artworks.map(artwork => (
         <ArtworksItem key={artwork.id} artwork={artwork} />
       ))}
-    </ul>
+    </>
   )
 }
 
