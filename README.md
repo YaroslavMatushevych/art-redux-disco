@@ -2,7 +2,7 @@ Next.js Artwork Project
 Welcome to the Next.js Artwork Project! This project showcases a collection of artworks and leverages the power of Next.js for both static and server-side rendering.
 
 🚀 Features
-Next.js: The React framework that enables features like static site generation and server-side rendering.
+Next.js: The React framework that enables features like static site generation and server-side rendering. 
 React Toolkit Query: Used for caching and state management. React Toolkit Query is especially powerful when combined with custom RTK (Redux Toolkit) hooks.
 
 !!!🧐 Opinionated Choices
