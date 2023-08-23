@@ -2,8 +2,8 @@
 import React from 'react'
 import Image from 'next/image'
 import { useGetArtworkByIdQuery } from '@/redux/services/artworkApi'
-import './ArtworkDetails.scss'
 import { substrStringByComma } from '@/lib/utils/substrStringByComma'
+import styles from './ArtworkDetails.module.scss'
 
 interface ArtworkItemProps {
   id: string

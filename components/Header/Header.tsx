@@ -1,18 +1,18 @@
 import React from 'react';
-import './Header.scss';
+import styles from './Header.module.scss';
 import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header>
+    <header className={styles.header}>
       <div>
-        <div className="title-container">
+        <div className={styles.titleContainer}>
           <span className="parent">Chicago Institute</span>
           <br />
           <span className="name">Artwork Gallery</span>
         </div>
 
-        <nav className="nav-container">
+        <nav className={styles.navContainer}>
           <Link href="/">
             Home
           </Link>

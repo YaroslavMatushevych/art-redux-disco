@@ -3,7 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Artwork } from '@/lib/interfaces'
 import { substrStringByComma } from '@/lib/utils/substrStringByComma'
-import './ArtworksItem.scss'
+import styles from './ArtworksItem.module.scss'
 
 interface ArtworksItemProps {
   artwork: Artwork;
@@ -17,7 +17,10 @@ const ArtworkDetails: React.FC<ArtworksItemProps> = ({ artwork }) => {
     <Link href={`/artwork/${artwork.id}`}>
       {/* I would use Image for optimization from next but for now it is not critical */}
       {/* ideally should be used lazy loading */}
-      <figure style={{ backgroundImage: `url(https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg)` }}>
+      <figure
+        style={{ backgroundImage: `url(https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg)` }}
+        className={styles.figure}
+      >
         <figcaption>{substredTitle}</figcaption>
       </figure>
     </Link>

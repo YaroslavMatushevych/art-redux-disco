@@ -1,9 +1,9 @@
 import React from 'react';
-import './BlurryFilter.scss';
+import styles from './BlurryFilter.module.scss';
 
 const BlurryFilter = () => {
   return (
-    <div id="blurry-filter"></div>
+    <div className={styles.blurryFilter}></div>
   );
 };
 

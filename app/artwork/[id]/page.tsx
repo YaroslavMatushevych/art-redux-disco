@@ -50,6 +50,8 @@ interface PageArtworkDetailsProps {
 const PageArtworkDetails: React.FC<PageArtworkDetailsProps> = async ({ params }) => {
   return (
     <div className={styles.container}>
+      {/* made decomposition here for better user experience in next.js
+      we can render some parts statically and ArtworkDetails on the client */}
       <ArtworkDetails id={params.id} />
     </div>
   );
