@@ -1,4 +1,5 @@
-Welcome to the Next.js Artwork Project! This project showcases a collection of artworks and leverages the power of Next.js for both static and server-side rendering.
+Welcome to the Next.js Artwork Project! 
+This project showcases a collection of artworks and leverages the power of Next.js for both static and server-side rendering.
 
 🚀 Features
 Next.js: The React framework that enables features like static site generation and server-side rendering. 
