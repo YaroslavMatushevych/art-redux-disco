@@ -1,4 +1,3 @@
-Next.js Artwork Project
 Welcome to the Next.js Artwork Project! This project showcases a collection of artworks and leverages the power of Next.js for both static and server-side rendering.
 
 🚀 Features
